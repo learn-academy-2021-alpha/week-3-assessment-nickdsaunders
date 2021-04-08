@@ -48,11 +48,13 @@
 
         render(){
           return(
+            //needed to call hand key to the card component to acceses the props of hand.
             <>
               <h1>Draw a Card</h1>
               <Card
                 drawCard={ this.drawCard }
                 shuffle={ this.shuffle }
+                hand={ this.state.hand }
               />
             </>
           )
@@ -74,11 +76,12 @@
             padding: "10px"
           }
           return(
+            //was missing this.props on drawCard and shuffle
             <>
-              <button onClick={}>
+              <button onClick={ this.props.drawCard }>
                 Click to Draw a Card
               </button>
-              <button onClick={ shuffle }>
+              <button onClick={ this.props.shuffle }>
                 Return Cards and Shuffle Deck
               </button>
               <div style={ handStyles }>
